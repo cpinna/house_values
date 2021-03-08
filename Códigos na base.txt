@@ -1,0 +1,19 @@
+Códigos na base de busca:
+Texto Anúncio: sc-ifAKCX sc-1mbetcw-0 dhSDMI - <a>
+Quartos, tamanho e vaga de garagem: sc-ifAKCX sc-1j5op1p-0 fDwtTK - <span>
+Cidade, bairro: sc-ifAKCX sc-7l84qu-1 fVmnUX - < span>
+Dia anúncio: sc-ifAKCX iGhECk - <span>
+Preço: sc-ifAKCX hLiLwY - <span>
+
+Códigos na base de imóveis (anúncios):
+Preço: sc-ifAKCX sc-1wimjbb-0 eRiLRs - <h2>
+Categoria: sc-57pm5w-0 sc-1f2ug0x-2 dBeEuJ - <a>
+Condominio: sc-ifAKCX sc-1f2ug0x-1 kFBcla -  <dd>
+Tamanho: sc-ifAKCX sc-1f2ug0x-1 kFBcla - <dd>
+Quatos: sc-57pm5w-0 sc-1f2ug0x-2 dBeEuJ - <a>
+Banheiros: sc-ifAKCX sc-1f2ug0x-1 kFBcla - <dd>
+Vagas: sc-ifAKCX sc-1f2ug0x-1 kFBcla - <dd>
+Cidade: sc-ifAKCX sc-1f2ug0x-1 kFBcla - <dd>
+Bairro: sc-ifAKCX sc-1f2ug0x-1 kFBcla - <dd>
+
+Teste de página não contrada: sc-ifAKCX ixpykR <h2>
