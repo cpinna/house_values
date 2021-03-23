@@ -1,0 +1,26 @@
+
+<title>Simulador de valores de imóveis</title>
+<h1>Simulador de valores de imóveis</h1>
+<form action="{{ url_for('dados_ap')}}" method="post">
+<label for="nquartos">Número de Quartos</label>
+<input type="number" id="nquartos" name="n_quartos" placeholder="nquartos">
+<p></p>
+<label for="nbanheiros">Número de Banheiros</label>
+<input type="number" id="nbanheiros" name="n_banheiros" placeholder="nbanheiros">
+<p></p>
+<label for="area">Área</label>
+<input type="number" id="area" name="area" placeholder="area">
+<p></p>
+<label for="garagem">Vagas de Garagem</label>
+<input type="number" id="garagem" name="garagem" placeholder="garagem">
+<p></p>
+<label for="Cidade">Cidade</label>
+<input list="Cidade" name="cidade">
+<datalist id="Cidade">
+  <option value="Cariacica">
+  <option value="Serra">
+  <option value="Vitória">
+  <option value="Vila Velha">
+</datalist>
+<p></p>
+<button type="submit">Checar dados da Casa</button>
