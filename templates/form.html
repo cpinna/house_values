@@ -1,19 +1,26 @@
 
 <title>Simulador de valores de imóveis</title>
+
 <h1>Simulador de valores de imóveis</h1>
+
 <form action="{{ url_for('dados_ap')}}" method="post">
+
 <label for="nquartos">Número de Quartos</label>
 <input type="number" id="nquartos" name="n_quartos" placeholder="nquartos">
-<p></p>
+  <p></p>
+
 <label for="nbanheiros">Número de Banheiros</label>
 <input type="number" id="nbanheiros" name="n_banheiros" placeholder="nbanheiros">
-<p></p>
+  <p></p>
+
 <label for="area">Área</label>
 <input type="number" id="area" name="area" placeholder="area">
-<p></p>
+  <p></p>
+
 <label for="garagem">Vagas de Garagem</label>
 <input type="number" id="garagem" name="garagem" placeholder="garagem">
-<p></p>
+  <p></p>
+
 <label for="Cidade">Cidade</label>
 <input list="Cidade" name="cidade">
 <datalist id="Cidade">
@@ -22,5 +29,127 @@
   <option value="Vitória">
   <option value="Vila Velha">
 </datalist>
-<p></p>
+  <p></p>
+
+<label for="Bairro">Bairro</label>
+<input list="Bairro" name="bairro">
+<datalist id="Bairro">
+  <option value="Aribiri">
+  <option value="Ataíde">
+  <option value="Balneário de Carapebus">
+  <option value="Barro Vermelho">
+  <option value="Bento Ferreira">
+  <option value="Camará">
+  <option value="Campo Grande">
+  <option value="Centro">
+  <option value="Centro de Vila Velha">
+  <option value="Chácara Parreiral">
+  <option value="Colina De Laranjeiras">
+  <option value="Colina de Laranjeiras">
+  <option value="Coqueiral de Itaparica">
+  <option value="Divino Espírito Santo">
+  <option value="Enseada do Suá">
+  <option value="Estância Monazítica">
+  <option value="Horto">
+  <option value="Hélio Ferraz">
+  <option value="Ilha de Santa Maria">
+  <option value="Ilha dos Ayres">
+  <option value="Itapuã">
+  <option value="Jardim Atlântico">
+  <option value="Jardim Camburi">
+  <option value="Jardim Limoeiro">
+  <option value="Jardim da Penha">
+  <option value="Jockey de Itaparica">
+  <option value="Manguinhos">
+  <option value="Maruípe">
+  <option value="Mata da Praia">
+  <option value="Monte Belo">
+  <option value="Morada De Laranjeiras">
+  <option value="Morada de Laranjeiras">
+  <option value="Nossa Senhora da Penha">
+  <option value="Parque Moscoso">
+  <option value="Parque Res Laranjeiras">
+  <option value="Parque Residencial Laranjeiras">
+  <option value="Planície da Serra">
+  <option value="Praia De Itaparica">
+  <option value="Praia da Baleia">
+  <option value="Praia da Costa">
+  <option value="Praia das Gaivotas">
+  <option value="Praia de Itaparica">
+  <option value="Praia do Canto">
+  <option value="Praia do Suá">
+  <option value="Residencial Coqueiral">
+  <option value="Residencial Vista do Mestre">
+  <option value="Rio Branco">
+  <option value="Rosário de Fátima">
+  <option value="Santa Helena">
+  <option value="Santa Inês">
+  <option value="Santa Luzia">
+  <option value="Santa Luíza">
+  <option value="Santa Lúcia">
+  <option value="Santa Martha">
+  <option value="Soteco">
+  <option value="São Conrado">
+  <option value="São Diogo I">
+  <option value="São Diogo II">
+  <option value="Valparaíso">
+  <option value="Vila Nova">
+  <option value="Vila Rubim">
+  <option value="das Laranjeiras">
+  <option value="de Fátima">
+</datalist>
+  <p></p>
+
+<label for="Tipo">Tipo</label>
+<input list="Tipo" name="tipo">
+<datalist id="Tipo">
+  <option value="apartamento">
+  <option value="cobertura">
+</datalist>
+  <p></p>
+
+<label for="condominio">Valor Condomínio</label>
+<input type="number" id="condominio" name="condominio" placeholder="condominio">
+  <p></p>
+
+<p>O que mais o imóvel possui?</p>
+<div>
+  <input type="checkbox" id="Churrasqueira" name="churrasqueira"
+         checked>
+  <label for="Churrasqueira">Churrasqueira</label>
+</div>
+<div>
+  <input type="checkbox" id="Armarios" name="armarios">
+  <label for="Armarios">Armários na cozinha</label>
+</div>
+<div>
+  <input type="checkbox" id="Varanda" name="varanda">
+  <label for="Varanda">Varanda</label>
+</div>
+<div>
+  <input type="checkbox" id="Piscina" name="piscina">
+  <label for="Piscina">Piscina</label>
+</div>
+<div>
+  <input type="checkbox" id="Salão" name="salao">
+  <label for="Salão">Salão</label>
+</div>
+<div>
+  <input type="checkbox" id="Segurança" name="seguranca">
+  <label for="Segurança">Segurança</label>
+</div>
+<div>
+  <input type="checkbox" id="Portaria" name="portaria">
+  <label for="Portaria">Portaria</label>
+</div>
+<div>
+  <input type="checkbox" id="Elevador" name="elevador">
+  <label for="Elevador">Elevador</label>
+</div>
+<div>
+  <input type="checkbox" id="Academia" name="academia">
+  <label for="Academia">Academia</label>
+</div>
+  <p></p>
 <button type="submit">Checar dados da Casa</button>
+</form>
