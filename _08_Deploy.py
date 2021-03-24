@@ -1,10 +1,10 @@
-# importing Flask and other modules
+# Importar bibliotecas
 from flask import Flask, request, render_template
 import numpy as np
 import pandas as pd
 import joblib as jb
 
-# Flask constructor
+# Montar APP
 app = Flask(__name__)
 
 
