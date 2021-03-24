@@ -1,25 +1,19 @@
-#%%
-#Importar bibliotecas necessárias
-import numpy as np
+
+# Importar bibliotecas necessárias
 import pandas as pd
 import re
 from tqdm import tqdm_notebook
-# %%
-#Carregar dados limpos
-dados_limpos = pd.read_csv('dados_tratados.csv',
-                           engine = 'python',
-                           header = 0,
-                           encoding = 'UTF-8').fillna(0)
-dados_limpos.info()
-# %%
-dados_limpos.head()
-# %%
-dados_limpos.groupby('tipo').count()
 
-#Remover o tipo 'Aluguel' da base
+# Carregar dados limpos
+dados_limpos = pd.read_csv('dados_tratados.csv',
+                           engine='python',
+                           header=0,
+                           encoding='UTF-8').fillna(0)
+
+# Remover o tipo 'Aluguel' da base
 dados_limpos = dados_limpos[~dados_limpos['tipo'].str.contains('Aluguel')]
-#%%
-#Criar o DF de Features
+
+# Criar o DF de Features
 dados_features = ['preco',
                   'valor_condominio',
                   'area',
@@ -29,8 +23,8 @@ dados_features = ['preco',
                   'cidade',
                   'bairro']
 features = dados_limpos[dados_features]
-# %%
-#Criar a feature do tipo do apartamento
+
+# Criar a feature do tipo do apartamento
 '''
 Ap duplex/triplex, kitchenette, loft e padrão serão agrupados juntos ao 'apartamento'
 Casa em vila será agrupado para grupo de 'casa em rua pública'
@@ -52,7 +46,8 @@ def def_tipo(t):
         return 'casa_condominio'
     elif bool(re.search('casa', t)):
         return 'casa_rua'
-    
+
+
 def loc_churrasqueira(ap, condominio):
     '''
     Localizar se o imóvel possui churrasqueiras e retornar 0 ou 1 (Neg ou Pos)
@@ -64,6 +59,7 @@ def loc_churrasqueira(ap, condominio):
     else:
         return 0 
 
+
 def loc_armarios(ap):
     '''
     Localizar se o imóvel possui armários na cozinha e retornar 0 ou 1 (Neg ou Pos)
@@ -72,7 +68,8 @@ def loc_armarios(ap):
         return 1
     else:
         return 0 
-    
+
+
 def loc_varanda(ap):
     '''
     Localizar se o imóvel possui varanda e retornar 0 ou 1 (Neg ou Pos)
@@ -81,6 +78,7 @@ def loc_varanda(ap):
         return 1
     else:
         return 0 
+
 
 def loc_piscina(ap, condominio):
     '''
@@ -92,7 +90,8 @@ def loc_piscina(ap, condominio):
         return 1
     else:
         return 0 
-    
+
+
 def loc_salao(ap, condominio):
     '''
     Localizar se o imóvel possui salão de festas e retornar 0 ou 1 (Neg ou Pos)
@@ -104,6 +103,7 @@ def loc_salao(ap, condominio):
     else:
         return 0 
 
+
 def loc_seguranca(condominio):
     '''
     Localizar se o imóvel possui segurnaça24h e retornar 0 ou 1 (Neg ou Pos)
@@ -113,6 +113,7 @@ def loc_seguranca(condominio):
     else:
         return 0 
 
+
 def loc_portaria(condominio):
     '''
     Localizar se o imóvel possui portaria e retornar 0 ou 1 (Neg ou Pos)
@@ -121,7 +122,8 @@ def loc_portaria(condominio):
         return 1
     else:
         return 0 
-    
+
+
 def loc_elevador(condominio):
     '''
     Localizar se o imóvel possui elevador e retornar 0 ou 1 (Neg ou Pos)
@@ -130,6 +132,7 @@ def loc_elevador(condominio):
         return 1
     else:
         return 0 
+
 
 def loc_academia(condominio):
     '''
@@ -140,8 +143,8 @@ def loc_academia(condominio):
     else:
         return 0 
 
-#%%
-#Criar as listas das features que serão tratadas
+
+# Criar as listas das features que serão tratadas
 tipo = []
 churrasqueira = []
 armarios_cozinha = []
@@ -153,18 +156,18 @@ portaria = []
 elevador = []
 academia = []
 
-#Tratamento das features
+# Tratamento das features
 for i in tqdm_notebook(dados_limpos.index):
 
-    #Definir tipo
-    t = dados_limpos.loc[i,'tipo']
+    # Definir tipo
+    t = dados_limpos.loc[i, 'tipo']
     tipo.append(def_tipo(t))
     
-    #Criar str dos dados
-    det_imovel = dados_limpos.loc[i,'detalhes_imovel']
-    det_condominio = dados_limpos.loc[i,'detalhes_condominio']
+    # Criar str dos dados
+    det_imovel = dados_limpos.loc[i, 'detalhes_imovel']
+    det_condominio = dados_limpos.loc[i, 'detalhes_condominio']
     
-    #Executar funções de localizar (loc)
+    # Executar funções de localizar (loc)
     churrasqueira.append(loc_churrasqueira(det_imovel, det_condominio))
     armarios_cozinha.append(loc_armarios(det_imovel))
     varanda.append(loc_varanda(det_imovel))
@@ -175,7 +178,7 @@ for i in tqdm_notebook(dados_limpos.index):
     elevador.append(loc_elevador(det_condominio))
     academia.append(loc_academia(det_condominio))
    
-#Adicionar os dados ao DF de Features
+# Adicionar os dados ao DF de Features
 features['tipo'] = tipo
 features['churrasqueira'] = churrasqueira
 features['armarios_cozinha'] = armarios_cozinha
@@ -186,11 +189,7 @@ features['seguranca'] = seguranca
 features['portaria'] = portaria
 features['elevador'] = elevador
 features['academia'] = academia
-#%%
-#Criação das Dummy Variables para poder lidar com as variáveis categóricas
-features_dummies = pd.get_dummies(features)
-features_dummies.head()
-# %%
-features_dummies.to_csv('features_dummies.csv', encoding = 'UTF-8', index = False)
-features.to_csv('features.csv', encoding = 'UTF-8', index = False)
-# %%
+
+# Exportar features
+features.to_csv('features.csv', encoding='UTF-8', index=False)
+
